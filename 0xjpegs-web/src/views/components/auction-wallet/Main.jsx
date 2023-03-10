@@ -1,0 +1,164 @@
+ 
+ import { ethers } from 'ethers';
+import { useNavigate } from 'react-router-dom';
+import SimpleButton from '@/views/components/simple-button/Main.jsx'
+ 
+import { observer } from "mobx-react";
+import React, { useState, useEffect } from 'react';
+
+import {approve, allowance , balanceOf } from "@/lib/currency-lib"
+import { buyout } from "@/lib/auction-lib"
+
+import  contractsConfig from '@/config/contracts-config.json'
+
+
+
+
+
+function Main({ web3Store, mintPrice }) {
+
+  let navigate = useNavigate();
+
+
+  
+   
+  const [amountApproved, amountApprovedSet] = useState(null) 
+  const [tokenBalance, tokenBalanceSet] = useState(null) 
+
+ 
+
+let networkName = 'goerli'
+let auctionContract = contractsConfig[networkName]['auction']
+
+ 
+
+const fetchApprovalAmount = async ( ) => {
+    
+    if(!web3Store.active) return 
+
+    try{  
+      const amt = await allowance(
+          web3Store.account,
+           auctionContract.address,
+            networkName,
+            web3Store.provider)
+    console.log({amt})
+      amountApprovedSet(amt)
+    }catch(e){
+      console.error(e)
+    }
+  } 
+
+
+
+
+const fetchBalance = async ( ) => {
+
+
+    if(!web3Store.active) return
+
+       try{  
+         const amt = await balanceOf(
+             web3Store.account, 
+               networkName,
+               web3Store.provider)
+         console.log({amt})
+         tokenBalanceSet(amt)
+       }catch(e){
+         console.error(e)
+       }
+     } 
+   
+
+  // on mount 
+  useEffect(()=>{
+    fetchBalance() 
+    fetchApprovalAmount() 
+
+    let balanceInterval = setInterval( fetchBalance, 5*1000  )
+    let approvedInterval = setInterval( fetchApprovalAmount, 4*1000  )
+  }, []) // <-- empty dependency array
+
+
+
+
+ const sufficientApproval = (approved,mintPrice) => {
+  
+    return parseInt(approved) >= parseInt(mintPrice)
+   }  
+
+   
+
+  return (
+    <div className="border-slate-200 border-2 rounded p-4 my-4 w-full">
+     
+   
+    <div className="flex flex-col w-full text-left">  
+            { !web3Store.active &&
+            
+             <div>
+                 Connect a wallet to purchase
+             </div>
+            }
+
+            { web3Store.active && !isNaN(parseInt(tokenBalance)) && 
+               
+                 <div>
+                   
+                        <div  className="mb-8 bg-orange-400 p-2 text-white font-bold ">
+
+                        Balance: { ethers.utils.formatUnits(tokenBalance, 8 ) }
+
+                        </div> 
+
+
+                    <div>
+                    {!sufficientApproval(amountApproved,mintPrice) &&
+                    <SimpleButton
+                    customClass="hover:bg-blue-400 hover:text-white hover:font-bold"
+
+                    clicked={async ()=>{  await approve( 
+                        auctionContract.address, 
+                        mintPrice, 
+                        networkName, 
+                        web3Store.signer )  }}
+                    > Approve 0xBTC
+                    </SimpleButton>
+                     }
+
+                     {sufficientApproval(amountApproved,mintPrice) &&
+                    <SimpleButton
+                    customClass="hover:bg-gray-700 hover:text-white hover:font-bold"
+                    clicked={async ()=>{  await buyout( 
+                        mintPrice, 
+                        web3Store.account,  
+                        networkName, 
+                        web3Store.signer )  }}
+                   
+                   > Buyout 
+                    </SimpleButton>
+                    }
+                    </div>
+            </div>
+           }
+       
+
+       
+ 
+      
+      
+    </div>
+
+    
+ 
+    </div>
+  )
+
+}
+
+  
+
+
+export default observer(Main);
+
+

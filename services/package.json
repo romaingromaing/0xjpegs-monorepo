@@ -1,0 +1,14 @@
+{
+  "name": "services",
+  "version": "0.10.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate-manifests": "ts-node tasks/generate-manifests.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^5.3.6"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "apps": [
+    {
+      "name": "ens-domain-frontend",
+      "script": "yarn frontend server",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "development"
+      }
+    } ,
+    
+    {
+      "name": "ens-domain-backend",
+      "script": "yarn backend server",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "development"
+      }
+    } ,
+    {
+      "name": "ens-domain-services",
+      "script": "yarn backend services",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "development"
+      }
+    } 
+  ]
+}

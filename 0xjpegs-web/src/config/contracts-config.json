@@ -1,0 +1,19 @@
+ {
+    "mainnet":{
+        "currency":{"address":"0xb6ed7644c69416d67b522e20bc294a9a9b405b31"},
+        "auction":{"address":""},
+        "jpegsNFT":{"address":""} 
+
+
+    },
+    "goerli":{
+        "currency":{"address":"0xab89a7742cb10e7bce98540fd05c7d731839cf9f"},
+        "auction":{"address":"0x097eab2195b4f377e6d9faab23f9555dfdf6b769"},
+        "jpegsNFT":{"address":"0xB87DFb31f2029F361f851784898f7F772841C5D0"} 
+
+
+    }
+
+
+
+ }
