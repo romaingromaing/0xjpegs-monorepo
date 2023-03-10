@@ -275,19 +275,15 @@ export default <HardhatUserConfig>{
       url: networkUrls.mainnet,
       chainId: 1,
       gasPrice: mainnetGwei * 1000000000,
-      accounts: [DEPOLOYER_PRIVATE_KEY]
+      
     }),
     
     goerli: networkConfig({
       url: networkUrls.goerli,
-      accounts: [DEPOLOYER_PRIVATE_KEY]
+ 
       // chainId: ,
     }),
-    xdai: networkConfig({
-      url: networkUrls.xdai,
-      // chainId: ,
-      gasPrice: 1000000000,
-    }),
+    
     polygon: networkConfig({
       url: networkUrls.polygon,
       chainId: 137,

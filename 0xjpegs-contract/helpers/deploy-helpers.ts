@@ -15,6 +15,7 @@ interface CommonDeployArgs extends Omit<DeployOptions, 'from'> {
 export interface DeployArgs extends CommonDeployArgs {
   contract: string
   args?: any[]
+  from?: any,
   skipIfAlreadyDeployed?: boolean
   mock?: boolean
 }
@@ -44,7 +45,7 @@ export const deploy = async <C extends Contract>(
     result = await deploy(contractDeployName, {
       ...args,
       contract: contractName,
-      from: deployer,
+      from: args.from ? args.from: deployer,
     })
     contractAddress = result.address
   } else {
