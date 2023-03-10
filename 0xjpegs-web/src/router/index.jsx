@@ -16,7 +16,7 @@ import ErrorPage from "../views/error-page/Main";
 function Router() {
   const routes = [
     {
-      path: "/",
+      
       element: <MainLayout />,
       children:  [ 
           {
@@ -27,11 +27,6 @@ function Router() {
           { 
             path:"/blog",
             element: <Blog/>
-           },
-
-           { 
-            path:"/blog/vibegraph",
-            element: <Vibegraph/>
            },
 
           
@@ -45,22 +40,7 @@ function Router() {
     },
 
    
-
-    {
-      path: "/dashboard",
-      element: <DashboardLayout />,
-      children: [
-        {
-          path: "/dashboard",
-          element: <DashboardView />,
-        },
-      
-        
-    
-       
-      ],
-    },
-   
+ 
   
     {
       path: "/error-page",
