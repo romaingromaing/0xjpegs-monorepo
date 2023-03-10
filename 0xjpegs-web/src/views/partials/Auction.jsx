@@ -209,7 +209,7 @@ const setPage = (newPageNumber) => {
                        
                       <div>
                        <div className="my-8 flex flex-col">
-                            <div className="underline"> Auction Price </div>
+                            <div className="underline"> Auction Price (0xbtc)</div>
                             <div className="flex flex-row"> 
                                <div className="px-1 text-lg font-bold"> { ethers.utils.formatUnits(mintPrice, 8)  } </div>
                                <div className="px-1" > 
