@@ -187,7 +187,7 @@ const setPage = (newPageNumber) => {
                   </div>
 
                     <div className="my-8 mx-auto px-32" >
-                    {tokenManifest &&
+                    {tokenManifest && tokenManifest.attributes && 
                       <div className="flex flex-col">
                       <div className="text-2xl font-bold"> {tokenManifest.name}  </div>
                       <div className="text-lg font-bold"> Token #{tokenManifest.attributes[0].value}  </div>
@@ -197,7 +197,7 @@ const setPage = (newPageNumber) => {
 
                      
 
-                      { tokenManifest && isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
+                      { tokenManifest && tokenManifest.attributes &&  isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
                        
                       <div>
                        <div className="my-8 flex flex-col">
