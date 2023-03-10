@@ -32,7 +32,7 @@ function Auction( {web3Store}  ) {
 
   const [pageNumber, pageNumberSet] = useState(null) 
 
-  let MAX_PAGE_NUMBER = 3 ; 
+  let MAX_PAGE_NUMBER = 59 ; 
 
 
   let hasInitializedPage = false
