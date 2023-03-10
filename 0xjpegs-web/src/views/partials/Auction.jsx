@@ -34,6 +34,9 @@ function Auction( {web3Store}  ) {
 
   let MAX_PAGE_NUMBER = 3 ; 
 
+
+  let hasInitializedPage = false
+
   const fetchTokenUri = async(tokenId) => { 
 
     try{ 
@@ -55,25 +58,26 @@ function Auction( {web3Store}  ) {
 
   }
 
-
- //only runs once 
+ 
   const fetchMintedCount = async ( ) => {
     
 
         try{ 
+
           const mintCount = await getMintCount(networkName, provider)
           
           mintedCountSet(mintCount)
 
-          if(isNaN(parseInt(pageNumber))){
+          if(!hasInitializedPage){
+            hasInitializedPage = true 
             setPage(mintCount)
-          } 
+          }
          
         }catch(e){
           console.error(e)
         }
    }
-
+  
 
 
   const fetchMintPrice = async ( ) => {
@@ -90,11 +94,16 @@ function Auction( {web3Store}  ) {
     }
   } 
 
+  const setup = async () => {
+    await fetchMintedCount()
+    await fetchMintPrice()
+   
+  }
 
   // on mount 
-  useEffect(()=>{
-    fetchMintedCount()
-    fetchMintPrice()
+  useEffect(  ()=>{
+  
+    setup()
 
 
     let priceInterval = setInterval( fetchMintPrice, 10*1000  )
@@ -108,12 +117,19 @@ function Auction( {web3Store}  ) {
  }  
 
 const setPage = (newPageNumber) => {
- 
+  
+  newPageNumber = parseInt(newPageNumber)
 
-  if(newPageNumber <0 ) newPageNumber = MAX_PAGE_NUMBER;
+
+  if(newPageNumber < 0 ) newPageNumber = MAX_PAGE_NUMBER;
   if(newPageNumber > MAX_PAGE_NUMBER) newPageNumber = 0;
- 
+  
+
+  if(  isNaN(newPageNumber) ) return 
+
   pageNumberSet(newPageNumber)
+
+  console.log({newPageNumber})
 
   //update page 
   fetchTokenUri(newPageNumber)

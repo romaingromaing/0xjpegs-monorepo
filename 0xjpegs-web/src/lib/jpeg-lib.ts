@@ -14,7 +14,9 @@ export async function getMintCount(networkName:string, provider: Provider){
     
     let jpegsContract = new ethers.Contract(localConfig['jpegsNFT'].address, JpegsNftAbi, provider)
 
-    return await jpegsContract.mintedTokenCount()
+    let count =  await jpegsContract.mintedTokenCount()
+
+    return count.toString()
 }
 
 
