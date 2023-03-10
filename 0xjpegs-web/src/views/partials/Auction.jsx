@@ -161,14 +161,16 @@ const setPage = (newPageNumber) => {
 
             <div className="grid lg:grid-cols-2 gap-2">
 
-                <div className="text-center">
+               
+                  <div className="text-center overflow-hidden" style={{ height:'600px'  }}  >
                       <img
                         className="m-auto"
                         src={imageUri} 
-                       
+                        style={{objectFit:'contain', maxHeight:'600px'}}
                        />
+                 </div>
 
-                </div>
+              
 
 
              <div >
