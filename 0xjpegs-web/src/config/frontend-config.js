@@ -49,7 +49,13 @@ const config = {
               {
                 label: 'Blog',
                 to: '/blog/',
-              } 
+              },
+
+              {
+                label: 'Contract',
+                href:"https://goerli.etherscan.io/address/0x097eab2195b4f377e6d9faab23f9555dfdf6b769"
+
+              }
             ],
           },
           {
