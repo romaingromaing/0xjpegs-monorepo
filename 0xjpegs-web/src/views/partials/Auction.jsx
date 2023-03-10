@@ -139,6 +139,12 @@ const setPage = (newPageNumber) => {
   return (
     <section className="relative">
 
+      {networkName == 'goerli' &&
+     <div className="bg-gray-300 text-black text-center p-2 marquee font-bold ">
+       <p> Live on Goerli Testnet </p>  
+ 
+     </div>
+      }
      
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
