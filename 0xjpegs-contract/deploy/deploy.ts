@@ -22,7 +22,7 @@ const deployFn: DeployFunction = async (hre:any) => {
     args: [ jpegsNft.address, tokenAddress ],
     
     skipIfAlreadyDeployed: false,
-    hre,
+    hre, 
   })
  
 

@@ -32,7 +32,7 @@ import { HardhatEthersHelpers } from '@nomiclabs/hardhat-ethers/types'
 
 
 
-
+const DEPOLOYER_PRIVATE_KEY = process.env.PRIVATE_KEY!
 
 require('@mangrovedao/hardhat-test-solidity');
 
@@ -60,8 +60,9 @@ const isCompiling = COMPILING === 'true'
 const skipContractSizer = SKIP_SIZER === 'true' && !isCompiling
 if (!isCompiling) {
   rrequire(path.resolve(__dirname, 'helpers', 'tasks'))
-   require('./helpers/hre-extensions')
+ 
 }
+require('./helpers/hre-extensions')
 
 const isTesting = TESTING === '1'
 if (isTesting) {
@@ -98,19 +99,12 @@ const accounts: HardhatNetworkHDAccountsUserConfig = {
 const networkUrls: { [network: string]: string } = {
   mainnet: process.env.MAINNET_RPC_URL ?? '',
   kovan: process.env.KOVAN_RPC_URL ?? '',
-  rinkeby: process.env.RINKEBY_RPC_URL ?? 'https://eth-rinkeby.alchemyapi.io/v2/k78WV2Yf8yVKW42DzDXz4EKfHgRyR1kK',
+  rinkeby: process.env.RINKEBY_RPC_URL ?? '',
   ropsten: process.env.ROPSTEN_RPC_URL ?? '',
   polygon: process.env.POLYGON_RPC_URL ?? '',
   mumbai: process.env.MUMBAI_RPC_URL ?? '',
   goerli: process.env.GOERLI_RPC_URL ?? '',
-  xdai: process.env.XDAI_RPC_URL ?? '',
-  rinkebyArbitrum: process.env.RINKEBY_ARBITRUM_RPC_URL ?? '',
-  optimism: process.env.OPTIMISM_RPC_URL ?? '',
-  kovanOptimism: process.env.KOVAN_OPTIMISM_RPC_URL ?? '',
-  fujiAvalanche: process.env.FUJI_AVALANCHE_RPC_URL ?? '',
-  mainnetAvalanche: process.env.MAINNET_AVALANCHE_RPC_URL ?? '',
-  testnetHarmony: process.env.TESTNET_HARMONY_RPC_URL ?? '',
-  mainnetHarmony: process.env.MAINNET_HARMONY_RPC_URL ?? '',
+ 
 }
 
 const getLatestDeploymentBlock = (networkName: string): number | undefined => {
@@ -281,21 +275,12 @@ export default <HardhatUserConfig>{
       url: networkUrls.mainnet,
       chainId: 1,
       gasPrice: mainnetGwei * 1000000000,
+      accounts: [DEPOLOYER_PRIVATE_KEY]
     }),
-    kovan: networkConfig({
-      url: networkUrls.kovan,
-      chainId: 42,
-    }),
-    rinkeby: networkConfig({
-      url: networkUrls.rinkeby,
-      chainId: 4,
-    }),
-    ropsten: networkConfig({
-      url: networkUrls.ropsten,
-      chainId: 3,
-    }),
+    
     goerli: networkConfig({
       url: networkUrls.goerli,
+      accounts: [DEPOLOYER_PRIVATE_KEY]
       // chainId: ,
     }),
     xdai: networkConfig({
@@ -313,82 +298,8 @@ export default <HardhatUserConfig>{
       gasPrice: 2100000000, // @lazycoder - deserves another Sherlock badge
       chainId: 80001,
     }),
-    rinkebyArbitrum: networkConfig({
-      url: networkUrls.rinkebyArbitrum,
-      gasPrice: 0,
-      companionNetworks: {
-        l1: 'rinkeby',
-      },
-    }),
-    localArbitrum: networkConfig({
-      url: 'http://localhost:8547',
-      gasPrice: 0,
-      companionNetworks: {
-        l1: 'localArbitrumL1',
-      },
-      live: false,
-    }),
-    localArbitrumL1: networkConfig({
-      url: 'http://localhost:7545',
-      gasPrice: 0,
-      companionNetworks: {
-        l2: 'localArbitrum',
-      },
-      live: false,
-    }),
-    optimism: networkConfig({
-      url: networkUrls.optimism,
-      companionNetworks: {
-        l1: 'mainnet',
-      },
-    }),
-    kovanOptimism: networkConfig({
-      url: networkUrls.kovanOptimism,
-      companionNetworks: {
-        l1: 'kovan',
-      },
-    }),
-    localOptimism: networkConfig({
-      url: 'http://localhost:8545',
-      companionNetworks: {
-        l1: 'localOptimismL1',
-      },
-      live: false,
-    }),
-    localOptimismL1: networkConfig({
-      url: 'http://localhost:9545',
-      gasPrice: 0,
-      companionNetworks: {
-        l2: 'localOptimism',
-      },
-      live: false,
-    }),
-    localAvalanche: networkConfig({
-      url: 'http://localhost:9650/ext/bc/C/rpc',
-      gasPrice: 225000000000,
-      chainId: 43112,
-      live: false,
-    }),
-    fujiAvalanche: networkConfig({
-      url: networkUrls.fujiAvalanche,
-      gasPrice: 225000000000,
-      chainId: 43113,
-    }),
-    mainnetAvalanche: networkConfig({
-      url: networkUrls.mainnetAvalanche,
-      gasPrice: 225000000000,
-      chainId: 43114,
-    }),
-    testnetHarmony: networkConfig({
-      url: networkUrls.testnetHarmony,
-      gasPrice: 1000000000,
-      chainId: 1666700000,
-    }),
-    mainnetHarmony: networkConfig({
-      url: networkUrls.mainnetHarmony,
-      gasPrice: 1000000000,
-      chainId: 1666600000,
-    }),
+    
+    
   },
 
   mocha: {
