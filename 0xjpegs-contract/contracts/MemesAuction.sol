@@ -15,13 +15,16 @@ import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
 /*
 
+    Memes Auction for 0xJPEGs
 
+    A reverse dutch auction that burns 0xbtc in order to mint NFTs.
 
 */
 
 contract MemesAuction is Ownable {
 
-    uint256 constant startPrice = 21000000 * 1e8;
+   // uint256 constant startPrice = 21000000 * 1e8;
+    uint256 constant startPrice = 21 * 1e8;
  
     address public immutable mintableNFT;
     address public immutable currencyToken;
@@ -55,6 +58,7 @@ contract MemesAuction is Ownable {
         lastEpochStartBlockNumber = block.number;
 
         emit AuctionStarted();
+
     }
 
 
@@ -69,23 +73,34 @@ contract MemesAuction is Ownable {
         emit AuctionPaused();  
     }
 
-    function buyout(uint256 amount, address recipient) public {
+    function buyout(uint256 amount, address recipient) public {  
+       
+        _buyout(msg.sender,amount,recipient);
+        
+    }   
 
+ 
+
+    function _buyout(address buyer, uint256 amount, address recipient) internal {
+       
+       
+        uint256 blockNumber = block.number;
+        uint256 mintPrice = getMintPrice(blockNumber);
+
+        require(amount>= mintPrice,"Insufficient amount.");
+
+       
         require(auctionStarted, "Auction is not started.");
-        auctionStarted = false;
+        auctionStarted = false;  
 
-        uint256 mintPrice = getMintPrice(block.number);
-
-        require(amount>= mintPrice);
-
-        //burn the ERC20 tokens
-        IERC20(currencyToken).transferFrom(msg.sender, address(0), amount);
+        IERC20(currencyToken).transferFrom(buyer, address(this), mintPrice);
+   
         
         //mint the nft 
         uint256 tokenId = IMintableNFT(mintableNFT).mint(recipient);
 
-        //emit event 
-        emit Buyout(msg.sender, tokenId, amount);
+          //emit event 
+        emit Buyout(recipient, tokenId, mintPrice);
 
 
         if( IMintableNFT(mintableNFT).hasMintableNft() ) {
@@ -94,8 +109,8 @@ contract MemesAuction is Ownable {
             _pauseAuction();
         }
        
-        
-    }   
+
+    }
 
  
 
@@ -108,7 +123,18 @@ contract MemesAuction is Ownable {
         return Math.ceilDiv(startPrice , ( Math.ceilDiv(  (blockNumbersDelta**2 + 100) , 200 ) )); 
 
     }
- 
+    
+
+       
+    function receiveApproval(address from, uint256 amount, address token, bytes memory data) public returns (bool success) {
+        
+        require( token == currencyToken );
+        
+        _buyout(from,amount,from); 
+
+        return true;
+
+     }
 
 }
 

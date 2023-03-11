@@ -26,6 +26,7 @@ export async function buyout(price:string, recipient:string, networkName:string,
     
     let auctionContract = new ethers.Contract(localConfig['auction'].address, MemesAuctionAbi, provider)
     console.log(price,recipient)
-    return await auctionContract.buyout(price,recipient)
+    return await auctionContract.buyout(price,recipient,
+        {gasLimit: 400000})
  
 }
