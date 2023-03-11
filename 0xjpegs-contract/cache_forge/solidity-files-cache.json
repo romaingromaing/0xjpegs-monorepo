@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/MemesAuction.sol": {
-      "lastModificationDate": 1678501513158,
-      "contentHash": "d8330084fda53e23a0e24d8cc081c1d7",
+      "lastModificationDate": 1678501972694,
+      "contentHash": "e8d7cb53169f14e9c38c7e030db56313",
       "sourceName": "contracts/MemesAuction.sol",
       "solcConfig": {
         "settings": {

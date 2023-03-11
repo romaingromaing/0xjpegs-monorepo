@@ -129,7 +129,8 @@ contract MemesAuction is Ownable {
 
        
     function receiveApproval(address from, uint256 amount, address token, bytes memory data) public returns (bool success) {
-        
+
+        require( msg.sender == currencyToken , "Invalid receiveApproval origin");
         require( token == currencyToken , "Invalid token type received");
         
         _buyout(from,amount,from); 
