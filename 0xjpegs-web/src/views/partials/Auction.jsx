@@ -254,6 +254,7 @@ const setPage = (newPageNumber) => {
                           <AuctionWallet 
                             web3Store= {web3Store}
                             mintPrice= {mintPrice}
+                            networkName = {networkName}
                           
                           />
 
