@@ -57,6 +57,8 @@ function Auction( {web3Store}  ) {
 
     }catch(e){
       console.error(e)
+
+      setPage(0) // go back to page 0 
     }
 
   }
