@@ -53,12 +53,13 @@ function Auction( {web3Store}  ) {
        
       let imageUri = manifest.data.image
       imageUriSet(imageUri)
-            
 
+      //console.log('meep', ext.length == 0, pageNumber)
+    
+      return ext 
     }catch(e){
       console.error(e)
-
-      setPage(0) // go back to page 0 
+     
     }
 
   }
@@ -146,7 +147,7 @@ function Auction( {web3Store}  ) {
   return parseInt(mintCount) == parseInt(tokenId)
  }  
 
-const setPage = (newPageNumber) => {
+const setPage = async (newPageNumber) => {
   
   newPageNumber = parseInt(newPageNumber)
 
@@ -161,8 +162,13 @@ const setPage = (newPageNumber) => {
  
 
   //update page 
-  fetchTokenUri(newPageNumber)
+  let ext = await fetchTokenUri(newPageNumber)
   fetchOwnerOf(newPageNumber)
+
+  if(ext.length == 0 && newPageNumber != 0  ){
+    setPage(0)
+  }
+
 }
 
    
