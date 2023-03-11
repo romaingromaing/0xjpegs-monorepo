@@ -55,6 +55,12 @@ const config = {
                 label: 'Contract',
                 href:"https://goerli.etherscan.io/address/0x097eab2195b4f377e6d9faab23f9555dfdf6b769"
 
+              },
+
+              {
+                label: '0xBTC Info',
+                href:"https://info.0xbitcoin.org"
+
               }
             ],
           },
