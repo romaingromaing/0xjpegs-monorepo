@@ -8,9 +8,14 @@ import "../contracts/MemesAuction.sol";
 
 
 import {IMintableNFT} from "../contracts/interfaces/IMintableNFT.sol";
+import {_0xMockToken} from "../contracts/mock/_0xMockToken.sol";
+
+import "lib/forge-std/src/console.sol";
+
 
 contract MemesAuctionTest is Test {
     MemesAuction mAuction;
+    _0xMockToken xToken;
 
     uint256 startBlockNumber = 1000;
 
@@ -18,7 +23,17 @@ contract MemesAuctionTest is Test {
 
         vm.roll(startBlockNumber);
 
-        mAuction = new MemesAuction(address(new MockJpegsNft()),address(0));
+
+        xToken = new _0xMockToken();
+
+        mAuction = new MemesAuction(address(new MockJpegsNft()),address(xToken));
+
+
+        xToken.mint(0,0x0);
+        xToken.mint(0,0x0);
+        xToken.mint(0,0x0);
+        xToken.mint(0,0x0);
+
     }
 
     function test_getMintPrice() public {
@@ -74,6 +89,24 @@ contract MemesAuctionTest is Test {
              "unexpected mint price after four days"
         );
  
+    }
+
+
+    function test_buyout() public { 
+        
+          xToken.mint(0,0x0);
+          mAuction.startAuction(); 
+
+          vm.roll(startBlockNumber + 500000);
+
+          bytes memory data;
+
+          uint256 amount = mAuction.getMintPrice(block.number);
+
+          uint256 balance = xToken.balanceOf(  address(this) ); 
+
+          xToken.approveAndCall( address(mAuction), amount, data ); 
+
     }
 }
 

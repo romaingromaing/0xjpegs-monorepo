@@ -12,6 +12,7 @@ import {IMintableNFT} from "./interfaces/IMintableNFT.sol";
 
 import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
+import "lib/forge-std/src/console.sol";
 
 /*
 
@@ -23,8 +24,8 @@ import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
 contract MemesAuction is Ownable {
 
-   // uint256 constant startPrice = 21000000 * 1e8;
-    uint256 constant startPrice = 21 * 1e8;
+    uint256 constant startPrice = 21000000 * 1e8;
+ 
  
     address public immutable mintableNFT;
     address public immutable currencyToken;
@@ -93,6 +94,11 @@ contract MemesAuction is Ownable {
         require(auctionStarted, "Auction is not started.");
         auctionStarted = false;  
 
+
+        console.logUint(mintPrice);
+
+        console.logAddress(buyer);
+
         IERC20(currencyToken).transferFrom(buyer, address(this), mintPrice);
    
         
@@ -128,7 +134,7 @@ contract MemesAuction is Ownable {
        
     function receiveApproval(address from, uint256 amount, address token, bytes memory data) public returns (bool success) {
         
-        require( token == currencyToken );
+        require( token == currencyToken , "Invalid token type received");
         
         _buyout(from,amount,from); 
 
