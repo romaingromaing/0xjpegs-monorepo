@@ -163,12 +163,19 @@ const setPage = (newPageNumber) => {
   return (
     <section className="relative">
 
-      {networkName == 'goerli' &&
+      {networkName == 'goerli' && (web3Store.chainId == '5' || !web3Store.active) &&
      <div className="bg-gray-300 text-black text-center p-2 marquee font-bold ">
        <p> Live on Goerli Testnet </p>  
  
      </div>
       }
+
+      {networkName == 'goerli' && web3Store.active && web3Store.chainId != '5' &&
+        <div className="bg-gray-300 text-black text-center p-2   font-bold ">
+            <p> Please switch network to Goerli Testnet </p>  
+    
+        </div>
+       }  
      
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
@@ -264,7 +271,7 @@ const setPage = (newPageNumber) => {
                             <a 
                             href={getOpenseaAccountPage(tokenOwner)}
                             className="text-blue-400"
-                            
+
                             >
                               {tokenOwner}
                             </a>
