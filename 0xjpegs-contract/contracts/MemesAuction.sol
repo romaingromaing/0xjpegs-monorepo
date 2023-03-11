@@ -11,8 +11,7 @@ import {IMintableNFT} from "./interfaces/IMintableNFT.sol";
 
 
 import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
-
-import "lib/forge-std/src/console.sol";
+ 
 
 /*
 
@@ -94,10 +93,7 @@ contract MemesAuction is Ownable {
         require(auctionStarted, "Auction is not started.");
         auctionStarted = false;  
 
-
-        console.logUint(mintPrice);
-
-        console.logAddress(buyer);
+ 
 
         IERC20(currencyToken).transferFrom(buyer, address(this), mintPrice);
    

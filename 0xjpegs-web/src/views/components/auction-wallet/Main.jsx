@@ -6,9 +6,8 @@ import SimpleButton from '@/views/components/simple-button/Main.jsx'
 import { observer } from "mobx-react";
 import React, { useState, useEffect } from 'react';
 
-import {approve, allowance , balanceOf } from "@/lib/currency-lib"
-import { buyout } from "@/lib/auction-lib"
-
+import {approve, allowance , balanceOf, approveAndCall } from "@/lib/currency-lib"
+ 
 import  contractsConfig from '@/config/contracts-config.json'
 
 
@@ -22,7 +21,7 @@ function Main({ web3Store, mintPrice }) {
 
   
    
-  const [amountApproved, amountApprovedSet] = useState(null) 
+  //const [amountApproved, amountApprovedSet] = useState(null) 
   const [tokenBalance, tokenBalanceSet] = useState(null) 
 
  
@@ -31,7 +30,7 @@ let networkName = 'goerli'
 let auctionContract = contractsConfig[networkName]['auction']
 
  
-
+/*
 const fetchApprovalAmount = async ( ) => {
     
     if(!web3Store.active) return 
@@ -48,7 +47,7 @@ const fetchApprovalAmount = async ( ) => {
       console.error(e)
     }
   } 
-
+*/
 
 
 
@@ -73,18 +72,18 @@ const fetchBalance = async ( ) => {
   // on mount 
   useEffect(()=>{
     fetchBalance() 
-    fetchApprovalAmount() 
+    //fetchApprovalAmount() 
 
     let balanceInterval = setInterval( fetchBalance, 5*1000  )
-    let approvedInterval = setInterval( fetchApprovalAmount, 4*1000  )
+   // let approvedInterval = setInterval( fetchApprovalAmount, 4*1000  )
   }, []) // <-- empty dependency array
 
 
 
-
+ 
  const sufficientApproval = (approved,mintPrice) => {
   
-    return parseInt(approved) >= parseInt(mintPrice)
+    return  true //parseInt(approved) >= parseInt(mintPrice)
    }  
 
    
@@ -113,7 +112,7 @@ const fetchBalance = async ( ) => {
 
 
                     <div>
-                    {!sufficientApproval(amountApproved,mintPrice) &&
+                    { /*
                     <SimpleButton
                     customClass="hover:bg-blue-400 hover:text-white hover:font-bold"
 
@@ -124,20 +123,21 @@ const fetchBalance = async ( ) => {
                         web3Store.signer )  }}
                     > Approve 0xBTC
                     </SimpleButton>
-                     }
+                    */}
 
-                     {sufficientApproval(amountApproved,mintPrice) &&
+                   
                     <SimpleButton
                     customClass="hover:bg-gray-700 hover:text-white hover:font-bold"
-                    clicked={async ()=>{  await buyout( 
-                        mintPrice, 
-                        web3Store.account,  
+                    clicked={async ()=>{  await approveAndCall(
+                        auctionContract.address, 
+                        mintPrice,  
+                        "0x",
                         networkName, 
                         web3Store.signer )  }}
                    
                    > Buyout 
                     </SimpleButton>
-                    }
+                    
                     </div>
             </div>
            }

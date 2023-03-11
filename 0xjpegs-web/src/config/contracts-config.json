@@ -8,7 +8,7 @@
     },
     "goerli":{
         "currency":{"address":"0xab89a7742cb10e7bce98540fd05c7d731839cf9f"},
-        "auction":{"address":"0x3FA2a710684BB6C7805c40D0f429Bce6836f351b"},
+        "auction":{"address":"0x8fce14A1891Df9D840F283bafB97BFf2c7Ceba07"},
         "jpegsNFT":{"address":"0xB87DFb31f2029F361f851784898f7F772841C5D0"} 
 
 
