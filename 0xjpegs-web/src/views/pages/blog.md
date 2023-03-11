@@ -17,7 +17,7 @@ This initial set of 60 memes will be auctioned off via custom smart contract usi
 ![image](https://github.com/0xBrian/0xBitcoin-memes/blob/master/memes/meme54.png?raw=true)
 
 
-Special mentions: Fappablo, Trav, Lodge, GeoffedUp, LtTofu and 0x1d00ffff  
+Special mentions: Fappablo, Trav, Lodge, GeoffedUp, Varg, PiZzA, Honey, Userbrn, Burn, jaykslol, RedManStan, LtTofu and 0x1d00ffff  
 
 
 ---

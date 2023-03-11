@@ -7,7 +7,8 @@ import DashboardView from "../views/dashboard/Index";
 import Welcome from '../views/welcome/Main'
     
 import Blog from '../views/pages/blog.md'   
-import Vibegraph from '../views/pages/vibegraph.md'   
+import Memes from '../views/pages/memes.md'   
+import Metadata from '../views/pages/metadata.md'   
  
 import ErrorPage from "../views/error-page/Main";
 
@@ -27,6 +28,16 @@ function Router() {
           { 
             path:"/blog",
             element: <Blog/>
+           },
+
+           { 
+            path:"/memes",
+            element: <Memes/>
+           },
+
+           { 
+            path:"/metadata",
+            element: <Metadata/>
            },
 
           

@@ -11,6 +11,10 @@ const config = {
          
           { to:'/blog', label:'0xJPEGs' },
     
+          { to:'/memes', label:'Memes' },
+      
+          { to:'/metadata', label:'Metadata' },
+    
       
 
            
