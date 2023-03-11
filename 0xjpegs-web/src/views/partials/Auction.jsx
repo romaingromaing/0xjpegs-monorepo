@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import  providerConfig from '@/config/provider-config.json'
  
-import {getMintCount,getTokenUriExtension} from "@/lib/jpeg-lib"
+import {getMintCount,getTokenUriExtension,getOwnerOf} from "@/lib/jpeg-lib"
 import {getMintPrice} from '@/lib/auction-lib'
 
 import logo0xbtc from '@/assets/images/0xbitcoin-logo-flat2.svg'
@@ -23,6 +23,9 @@ function Auction( {web3Store}  ) {
 
 
   const [mintedCount, mintedCountSet] = useState(null) 
+
+  const [tokenOwner, tokenOwnerSet] = useState(null) 
+
   const [tokenUri, tokenUriSet] = useState(null) 
   const [tokenManifest, tokenManifestSet] = useState(null) 
   const [imageUri, imageUriSet] = useState(null) 
@@ -57,6 +60,21 @@ function Auction( {web3Store}  ) {
     }
 
   }
+
+  const fetchOwnerOf = async(tokenId) => { 
+
+    try{ 
+      const owner = await getOwnerOf(tokenId, networkName, provider)
+      
+      tokenOwnerSet(owner) 
+      
+
+    }catch(e){
+      console.error(e)
+    }
+
+  }
+
 
  
   const fetchMintedCount = async ( ) => {
@@ -100,6 +118,11 @@ function Auction( {web3Store}  ) {
    
   }
 
+  const getOpenseaAccountPage = (address) => {
+    return networkName == 'mainnet' ? `https://opensea.io/${address}` : `https://testnets.opensea.io/${address}`
+  }
+
+
   // on mount 
   useEffect(  ()=>{
   
@@ -133,6 +156,7 @@ const setPage = (newPageNumber) => {
 
   //update page 
   fetchTokenUri(newPageNumber)
+  fetchOwnerOf(newPageNumber)
 }
 
    
@@ -227,6 +251,25 @@ const setPage = (newPageNumber) => {
                           />
 
                         </div>
+
+                        }
+
+                        { tokenOwner && <div className="my-4">
+
+                            <div>
+                            Collected by: 
+
+                            </div>
+                            
+                            <a 
+                            href={getOpenseaAccountPage(tokenOwner)}
+                            className="text-blue-400"
+                            
+                            >
+                              {tokenOwner}
+                            </a>
+
+                          </div>
 
                         }
 

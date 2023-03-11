@@ -28,3 +28,14 @@ export async function getTokenUriExtension(tokenId: string, networkName:string, 
 
     return await jpegsContract.uriExtensions(tokenId)
 }
+
+
+
+export async function getOwnerOf(tokenId: string, networkName:string, provider: Provider){
+
+    let localConfig:any = contractsConfig[networkName]
+    
+    let jpegsContract = new ethers.Contract(localConfig['jpegsNFT'].address, JpegsNftAbi, provider)
+
+    return await jpegsContract.ownerOf(tokenId)
+}
