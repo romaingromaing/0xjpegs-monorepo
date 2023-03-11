@@ -53,7 +53,7 @@ const config = {
 
               {
                 label: 'Contract',
-                href:"https://goerli.etherscan.io/address/0x097eab2195b4f377e6d9faab23f9555dfdf6b769"
+                href:"https://goerli.etherscan.io/address/0x8fce14A1891Df9D840F283bafB97BFf2c7Ceba07"
 
               },
 

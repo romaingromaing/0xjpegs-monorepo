@@ -29,12 +29,17 @@ contract MemesAuction is Ownable {
     address public immutable mintableNFT;
     address public immutable currencyToken;
 
+    address public fundsRecipient;
+    uint32 public burnPct = 5000; //50 percent
+
     uint256 public lastEpochStartBlockNumber;
     bool public auctionStarted;
 
     event Buyout(address buyer, uint256 tokenId, uint256 price); 
     event AuctionStarted(); 
     event AuctionPaused(); 
+    event SetFundsRecipient(address recipient);
+    event SetBurnPercent(uint32 pct);
 
     constructor(address _mintableNFT, address _currencyToken) Ownable() {
 
@@ -96,7 +101,9 @@ contract MemesAuction is Ownable {
  
 
         IERC20(currencyToken).transferFrom(buyer, address(this), mintPrice);
-   
+
+        _transferFundsOut( mintPrice );
+
         
         //mint the nft 
         uint256 tokenId = IMintableNFT(mintableNFT).mint(recipient);
@@ -114,7 +121,38 @@ contract MemesAuction is Ownable {
 
     }
 
- 
+    function _transferFundsOut(uint256 amount) internal {
+
+        uint256 amountToBurn = Math.mulDiv(
+            amount,
+            burnPct ,
+            10000
+        );       
+
+        IERC20(currencyToken).transfer(address(0), amountToBurn);
+
+        uint256 amountRemaining = amount- amountToBurn;
+
+        IERC20(currencyToken).transfer(fundsRecipient, amountRemaining); 
+
+    }
+
+
+
+
+    function setFundsRecipient(address _recipient) public onlyOwner {
+        fundsRecipient = _recipient;
+
+        emit SetFundsRecipient(_recipient);
+    }
+
+     function setBurnPct(uint32 _pct) public onlyOwner {
+        require(_pct >= 0 && _pct <= 10000, "Invalid percent");
+
+        burnPct = _pct;
+        
+        emit SetBurnPercent(_pct);
+    }
 
     function getMintPrice(uint256 blockNumber) public view returns (uint256) {
 
