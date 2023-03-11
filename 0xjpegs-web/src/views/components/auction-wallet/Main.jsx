@@ -11,7 +11,7 @@ import {approve, allowance , balanceOf, approveAndCall } from "@/lib/currency-li
 import  contractsConfig from '@/config/contracts-config.json'
 
 
-
+import LoadingIcon from '@/views/components/loading-icon/Main.jsx'
 
 
 function Main({ web3Store, mintPrice }) {
@@ -100,6 +100,12 @@ const fetchBalance = async ( ) => {
              </div>
             }
 
+
+            { web3Store.active && isNaN(parseInt(tokenBalance)) &&
+
+                    <LoadingIcon />
+            }
+
             { web3Store.active && !isNaN(parseInt(tokenBalance)) && 
                
                  <div>
@@ -135,7 +141,7 @@ const fetchBalance = async ( ) => {
                         networkName, 
                         web3Store.signer )  }}
                    
-                   > Buyout 
+                   > Buyout
                     </SimpleButton>
                     
                     </div>

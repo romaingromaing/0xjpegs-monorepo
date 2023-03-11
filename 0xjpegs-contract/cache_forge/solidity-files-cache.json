@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/MemesAuction.sol": {
-      "lastModificationDate": 1678500562401,
-      "contentHash": "658c3d63012c02635512ea636f722932",
+      "lastModificationDate": 1678501513158,
+      "contentHash": "d8330084fda53e23a0e24d8cc081c1d7",
       "sourceName": "contracts/MemesAuction.sol",
       "solcConfig": {
         "settings": {
@@ -46,7 +46,6 @@
       },
       "imports": [
         "contracts/interfaces/IMintableNFT.sol",
-        "lib/forge-std/src/console.sol",
         "node_modules/@openzeppelin/contracts/access/Ownable.sol",
         "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol",

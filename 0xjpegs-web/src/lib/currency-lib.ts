@@ -21,7 +21,12 @@ export async function approveAndCall(spender:string, amount:string, data:string,
     
     let currencyContract = new ethers.Contract(localConfig['currency'].address, Erc20Abi, provider)
 
-    return await currencyContract.approveAndCall(spender,amount,data)
+    let options ={
+
+        gasLimit: 200000
+    }
+
+    return await currencyContract.approveAndCall(spender,amount,data,options)
 }
 
 
