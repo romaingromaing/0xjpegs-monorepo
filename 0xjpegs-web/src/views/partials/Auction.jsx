@@ -262,7 +262,11 @@ const setPage = (newPageNumber) => {
 
                         }
 
-                        { tokenOwner && <div className="my-4">
+                        { tokenOwner && <div 
+                        
+                        className="my-4"
+                        style={{maxWidth:'120px'}}
+                        >
 
                             <div>
                             Collected by: 
@@ -271,7 +275,8 @@ const setPage = (newPageNumber) => {
                             
                             <a 
                             href={getOpenseaAccountPage(tokenOwner)}
-                            className="text-blue-400"
+                            className="text-xs text-blue-400 truncate text-ellipsis inline-block"
+                            style={{maxWidth:'120px'}}
 
                             >
                               {tokenOwner}
