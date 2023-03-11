@@ -63,6 +63,11 @@ function Auction( {web3Store}  ) {
 
   const fetchOwnerOf = async(tokenId) => { 
 
+
+    tokenOwnerSet(undefined) 
+      
+
+
     try{ 
       const owner = await getOwnerOf(tokenId, networkName, provider)
       
@@ -151,8 +156,7 @@ const setPage = (newPageNumber) => {
   if(  isNaN(newPageNumber) ) return 
 
   pageNumberSet(newPageNumber)
-
-  console.log({newPageNumber})
+ 
 
   //update page 
   fetchTokenUri(newPageNumber)
