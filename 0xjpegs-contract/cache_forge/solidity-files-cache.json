@@ -102,8 +102,8 @@
       }
     },
     "contracts/mock/_0xMockToken.sol": {
-      "lastModificationDate": 1678500884747,
-      "contentHash": "ad6cfc53eb8fbe9b4a69d83ae61f55ca",
+      "lastModificationDate": 1678500912599,
+      "contentHash": "e2808df2a2a697aa4d6631db64a2a0d7",
       "sourceName": "contracts/mock/_0xMockToken.sol",
       "solcConfig": {
         "settings": {
@@ -627,8 +627,8 @@
       }
     },
     "test/MemesAuction.t.sol": {
-      "lastModificationDate": 1678500871159,
-      "contentHash": "c3bc5ca223a191ffd9fada650371cc3e",
+      "lastModificationDate": 1678500970814,
+      "contentHash": "229a294c7719e83eb0a74ca5a429a564",
       "sourceName": "test/MemesAuction.t.sol",
       "solcConfig": {
         "settings": {

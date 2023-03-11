@@ -105,6 +105,25 @@ contract MemesAuctionTest is Test {
 
           uint256 balance = xToken.balanceOf(  address(this) ); 
 
+          xToken.approve( address(mAuction), amount ); 
+
+          mAuction.buyout( 5000000, address(this)  );
+
+    }
+
+     function test_buyout_2() public { 
+        
+          xToken.mint(0,0x0);
+          mAuction.startAuction(); 
+
+          vm.roll(startBlockNumber + 500000);
+
+          bytes memory data;
+
+          uint256 amount = mAuction.getMintPrice(block.number);
+
+          uint256 balance = xToken.balanceOf(  address(this) ); 
+
           xToken.approveAndCall( address(mAuction), amount, data ); 
 
     }
