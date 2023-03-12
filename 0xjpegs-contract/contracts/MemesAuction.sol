@@ -15,7 +15,7 @@ import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
 /*
 
-    Memes Auction for 0xJPEGs
+    Auction Contract for 0xJPEGs
 
     A reverse dutch auction that burns 0xbtc in order to mint NFTs.
 

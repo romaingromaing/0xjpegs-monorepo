@@ -13,9 +13,7 @@ import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
  
 
 /*
-
-
-
+    0xJPEGs are a celebration of decentralized and credibly-neutral assets on Ethereum Mainnet.
 */
 
 
