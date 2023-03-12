@@ -4,10 +4,11 @@ const fs = require("fs");
 const { parse } = require("csv-parse");
 
 const inputPath = 'tasks/data/input.csv'
- 
+  
+
 fs.createReadStream(inputPath)
   .pipe(parse({ delimiter: ",", from_line: 2 }))
-  .on("data", function (row) {
+  .on("data", function (row:any) {
     
 
     handleRow( row )
@@ -23,8 +24,12 @@ function handleRow( row :any  ){
     let tokenId = parseInt(row[2])
     let imageUrl = row[9]
 
+    if(isNaN(tokenId)) {
+      console.log('skipping row without token id: ', name)
+      return
+    }
     if(!name) throw Error("missing image url")
-    if(isNaN(tokenId)) throw Error("invalid token id")
+ 
     if(!imageUrl) throw Error("missing image url")
 
     let output = {
