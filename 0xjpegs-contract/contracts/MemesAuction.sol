@@ -11,11 +11,13 @@ import {IMintableNFT} from "./interfaces/IMintableNFT.sol";
 
 
 import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
-
+ 
 
 /*
 
+    Memes Auction for 0xJPEGs
 
+    A reverse dutch auction that burns 0xbtc in order to mint NFTs.
 
 */
 
@@ -23,8 +25,12 @@ contract MemesAuction is Ownable {
 
     uint256 constant startPrice = 21000000 * 1e8;
  
+ 
     address public immutable mintableNFT;
     address public immutable currencyToken;
+
+    address public fundsRecipient;
+    uint32 public burnPct = 5000; //50 percent
 
     uint256 public lastEpochStartBlockNumber;
     bool public auctionStarted;
@@ -32,6 +38,8 @@ contract MemesAuction is Ownable {
     event Buyout(address buyer, uint256 tokenId, uint256 price); 
     event AuctionStarted(); 
     event AuctionPaused(); 
+    event SetFundsRecipient(address recipient);
+    event SetBurnPercent(uint32 pct);
 
     constructor(address _mintableNFT, address _currencyToken) Ownable() {
 
@@ -55,6 +63,7 @@ contract MemesAuction is Ownable {
         lastEpochStartBlockNumber = block.number;
 
         emit AuctionStarted();
+
     }
 
 
@@ -69,23 +78,38 @@ contract MemesAuction is Ownable {
         emit AuctionPaused();  
     }
 
-    function buyout(uint256 amount, address recipient) public {
+    function buyout(uint256 amount, address recipient) public {  
+       
+        _buyout(msg.sender,amount,recipient);
+        
+    }   
 
+ 
+
+    function _buyout(address buyer, uint256 amount, address recipient) internal {
+       
+       
+        uint256 blockNumber = block.number;
+        uint256 mintPrice = getMintPrice(blockNumber);
+
+        require(amount>= mintPrice,"Insufficient amount.");
+
+       
         require(auctionStarted, "Auction is not started.");
-        auctionStarted = false;
+        auctionStarted = false;  
 
-        uint256 mintPrice = getMintPrice(block.number);
+ 
 
-        require(amount>= mintPrice);
+        IERC20(currencyToken).transferFrom(buyer, address(this), mintPrice);
 
-        //burn the ERC20 tokens
-        IERC20(currencyToken).transferFrom(msg.sender, address(0), amount);
+        _transferFundsOut( mintPrice );
+
         
         //mint the nft 
         uint256 tokenId = IMintableNFT(mintableNFT).mint(recipient);
 
-        //emit event 
-        emit Buyout(msg.sender, tokenId, amount);
+          //emit event 
+        emit Buyout(recipient, tokenId, mintPrice);
 
 
         if( IMintableNFT(mintableNFT).hasMintableNft() ) {
@@ -94,10 +118,41 @@ contract MemesAuction is Ownable {
             _pauseAuction();
         }
        
-        
-    }   
 
- 
+    }
+
+    function _transferFundsOut(uint256 amount) internal {
+
+        uint256 amountToBurn = Math.mulDiv(
+            amount,
+            burnPct ,
+            10000
+        );       
+
+        IERC20(currencyToken).transfer(address(0), amountToBurn);
+
+        uint256 amountRemaining = amount- amountToBurn;
+
+        IERC20(currencyToken).transfer(fundsRecipient, amountRemaining); 
+
+    }
+
+
+
+
+    function setFundsRecipient(address _recipient) public onlyOwner {
+        fundsRecipient = _recipient;
+
+        emit SetFundsRecipient(_recipient);
+    }
+
+     function setBurnPct(uint32 _pct) public onlyOwner {
+        require(_pct >= 0 && _pct <= 10000, "Invalid percent");
+
+        burnPct = _pct;
+        
+        emit SetBurnPercent(_pct);
+    }
 
     function getMintPrice(uint256 blockNumber) public view returns (uint256) {
 
@@ -108,7 +163,19 @@ contract MemesAuction is Ownable {
         return Math.ceilDiv(startPrice , ( Math.ceilDiv(  (blockNumbersDelta**2 + 100) , 200 ) )); 
 
     }
- 
+    
+
+       
+    function receiveApproval(address from, uint256 amount, address token, bytes memory data) public returns (bool success) {
+
+        require( msg.sender == currencyToken , "Invalid receiveApproval origin");
+        require( token == currencyToken , "Invalid token type received");
+        
+        _buyout(from,amount,from); 
+
+        return true;
+
+     }
 
 }
 

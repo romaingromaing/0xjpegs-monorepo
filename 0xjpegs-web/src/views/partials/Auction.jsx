@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import  providerConfig from '@/config/provider-config.json'
  
-import {getMintCount,getTokenUriExtension} from "@/lib/jpeg-lib"
+import {getMintCount,getTokenUriExtension,getOwnerOf} from "@/lib/jpeg-lib"
 import {getMintPrice} from '@/lib/auction-lib'
 
 import logo0xbtc from '@/assets/images/0xbitcoin-logo-flat2.svg'
@@ -23,6 +23,9 @@ function Auction( {web3Store}  ) {
 
 
   const [mintedCount, mintedCountSet] = useState(null) 
+
+  const [tokenOwner, tokenOwnerSet] = useState(null) 
+
   const [tokenUri, tokenUriSet] = useState(null) 
   const [tokenManifest, tokenManifestSet] = useState(null) 
   const [imageUri, imageUriSet] = useState(null) 
@@ -50,13 +53,36 @@ function Auction( {web3Store}  ) {
        
       let imageUri = manifest.data.image
       imageUriSet(imageUri)
-            
+
+      //console.log('meep', ext.length == 0, pageNumber)
+    
+      return ext 
+    }catch(e){
+      console.error(e)
+     
+    }
+
+  }
+
+  const fetchOwnerOf = async(tokenId) => { 
+
+
+    tokenOwnerSet(undefined) 
+      
+
+
+    try{ 
+      const owner = await getOwnerOf(tokenId, networkName, provider)
+      
+      tokenOwnerSet(owner) 
+      
 
     }catch(e){
       console.error(e)
     }
 
   }
+
 
  
   const fetchMintedCount = async ( ) => {
@@ -100,6 +126,11 @@ function Auction( {web3Store}  ) {
    
   }
 
+  const getOpenseaAccountPage = (address) => {
+    return networkName == 'mainnet' ? `https://opensea.io/${address}` : `https://testnets.opensea.io/${address}`
+  }
+
+
   // on mount 
   useEffect(  ()=>{
   
@@ -116,7 +147,7 @@ function Auction( {web3Store}  ) {
   return parseInt(mintCount) == parseInt(tokenId)
  }  
 
-const setPage = (newPageNumber) => {
+const setPage = async (newPageNumber) => {
   
   newPageNumber = parseInt(newPageNumber)
 
@@ -128,23 +159,35 @@ const setPage = (newPageNumber) => {
   if(  isNaN(newPageNumber) ) return 
 
   pageNumberSet(newPageNumber)
-
-  console.log({newPageNumber})
+ 
 
   //update page 
-  fetchTokenUri(newPageNumber)
+  let ext = await fetchTokenUri(newPageNumber)
+  fetchOwnerOf(newPageNumber)
+
+  if(ext.length == 0 && newPageNumber != 0  ){
+    setPage(0)
+  }
+
 }
 
    
   return (
     <section className="relative">
 
-      {networkName == 'goerli' &&
+      {networkName == 'goerli' && (web3Store.chainId == '5' || !web3Store.active) &&
      <div className="bg-gray-300 text-black text-center p-2 marquee font-bold ">
        <p> Live on Goerli Testnet </p>  
  
      </div>
       }
+
+      {networkName == 'goerli' && web3Store.active && web3Store.chainId != '5' &&
+        <div className="bg-gray-300 text-black text-center p-2   font-bold ">
+            <p> Please switch network to Goerli Testnet </p>  
+    
+        </div>
+       }  
      
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
@@ -223,10 +266,35 @@ const setPage = (newPageNumber) => {
                           <AuctionWallet 
                             web3Store= {web3Store}
                             mintPrice= {mintPrice}
+                            networkName = {networkName}
                           
                           />
 
                         </div>
+
+                        }
+
+                        { tokenOwner && <div 
+                        
+                        className="my-4"
+                        style={{maxWidth:'120px'}}
+                        >
+
+                            <div>
+                            Collected by: 
+
+                            </div>
+                            
+                            <a 
+                            href={getOpenseaAccountPage(tokenOwner)}
+                            className="text-xs text-blue-400 truncate text-ellipsis inline-block"
+                            style={{maxWidth:'120px'}}
+
+                            >
+                              {tokenOwner}
+                            </a>
+
+                          </div>
 
                         }
 

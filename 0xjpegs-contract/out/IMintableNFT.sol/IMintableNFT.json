@@ -137,19 +137,19 @@
   },
   "ast": {
     "absolutePath": "contracts/interfaces/IMintableNFT.sol",
-    "id": 449,
+    "id": 283,
     "exportedSymbols": {
       "IMintableNFT": [
-        448
+        282
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:178:2",
+    "src": "32:178:1",
     "nodes": [
       {
-        "id": 435,
+        "id": 269,
         "nodeType": "PragmaDirective",
-        "src": "32:24:2",
+        "src": "32:24:1",
         "nodes": [],
         "literals": [
           "solidity",
@@ -159,34 +159,34 @@
         ]
       },
       {
-        "id": 448,
+        "id": 282,
         "nodeType": "ContractDefinition",
-        "src": "59:151:2",
+        "src": "59:151:1",
         "nodes": [
           {
-            "id": 442,
+            "id": 276,
             "nodeType": "FunctionDefinition",
-            "src": "89:62:2",
+            "src": "89:62:1",
             "nodes": [],
             "functionSelector": "6a627842",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "98:4:2",
+            "nameLocation": "98:4:1",
             "parameters": {
-              "id": 438,
+              "id": 272,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 437,
+                  "id": 271,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "111:2:2",
+                  "nameLocation": "111:2:1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 442,
-                  "src": "103:10:2",
+                  "scope": 276,
+                  "src": "103:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -194,10 +194,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 436,
+                    "id": 270,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "103:7:2",
+                    "src": "103:7:1",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -207,21 +207,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "102:13:2"
+              "src": "102:13:1"
             },
             "returnParameters": {
-              "id": 441,
+              "id": 275,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 440,
+                  "id": 274,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "142:7:2",
+                  "nameLocation": "142:7:1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 442,
-                  "src": "134:15:2",
+                  "scope": 276,
+                  "src": "134:15:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -229,10 +229,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 439,
+                    "id": 273,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "134:7:2",
+                    "src": "134:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -241,43 +241,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "133:17:2"
+              "src": "133:17:1"
             },
-            "scope": 448,
+            "scope": 282,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 447,
+            "id": 281,
             "nodeType": "FunctionDefinition",
-            "src": "158:50:2",
+            "src": "158:50:1",
             "nodes": [],
             "functionSelector": "0e7e0a93",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "hasMintableNft",
-            "nameLocation": "167:14:2",
+            "nameLocation": "167:14:1",
             "parameters": {
-              "id": 443,
+              "id": 277,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "181:2:2"
+              "src": "181:2:1"
             },
             "returnParameters": {
-              "id": 446,
+              "id": 280,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 445,
+                  "id": 279,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 447,
-                  "src": "202:4:2",
+                  "scope": 281,
+                  "src": "202:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -285,10 +285,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 444,
+                    "id": 278,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "202:4:2",
+                    "src": "202:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -297,9 +297,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "201:6:2"
+              "src": "201:6:1"
             },
-            "scope": 448,
+            "scope": 282,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -312,15 +312,15 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          448
+          282
         ],
         "name": "IMintableNFT",
-        "nameLocation": "69:12:2",
-        "scope": 449,
+        "nameLocation": "69:12:1",
+        "scope": 283,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 2
+  "id": 1
 }

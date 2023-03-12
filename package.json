@@ -2,13 +2,13 @@
    "name": "ens-api-monorepo",
    "private": true,
    "scripts": {
-      "backend": "yarn workspace 0xjpegs-backend",
+      "contracts": "yarn workspace 0xjpegs-contract",
       "frontend": "yarn workspace 0xjpegs-web",
       "services" : "yarn workspace services"
    },
    "workspaces": {
       "packages": [
-         "0xjpegs-backend",
+         "0xjpegs-contract",
          "0xjpegs-web",
          "services"
       ]
