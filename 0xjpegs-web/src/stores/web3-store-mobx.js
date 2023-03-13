@@ -2,7 +2,7 @@
 
 
 import { ethers } from "ethers";
-import { parseInt } from 'lodash';
+import { isArray, parseInt } from 'lodash';
 import { useState } from "react";
 import { atom, useRecoilState } from "recoil";
 
@@ -33,6 +33,10 @@ export class Web3Store {
     authorized = false
     challenge=undefined
     authToken=undefined
+
+
+
+    customCallbacks = {} 
  
   
     constructor() {
@@ -51,10 +55,11 @@ export class Web3Store {
 
             connect: action,
             disconnect: action,
-            registerCallbacks: action ,
+            registerWalletCallbacks: action ,
 
             requestChallengeAndSign: action,
-            
+          
+            registerCustomCallback : action 
         })
         
     }
@@ -80,7 +85,7 @@ export class Web3Store {
       this.active = true 
       this.chainId = chainId 
       
-      this.registerCallbacks()
+      this.registerWalletCallbacks()
 
     }
 
@@ -94,22 +99,54 @@ export class Web3Store {
 
 
     //these dont work properly like this w strict mode ...
-    registerCallbacks(){
+    registerWalletCallbacks(){
 
       window.ethereum.on('connect', ({chainId}) => {
         this.chainId = chainId
+        this.emitCustomEvent('connect')
       });
 
       window.ethereum.on('chainChanged', (chainId) => {
         this.chainId = chainId
+        this.emitCustomEvent('chainChanged')
         console.log('chain changed')
       });
 
       window.ethereum.on('accountsChanged', async (accounts) => {
         this.account = accounts[0]
+        this.emitCustomEvent('accountsChanged')
         console.log('account changed')
        
       });
+
+    }
+
+    emitCustomEvent(name){
+
+      
+      if(isArray(this.customCallbacks[name])){
+       for(let cb of this.customCallbacks[name]){ 
+
+            cb() 
+
+       }
+      }
+
+    }
+
+    /*
+      Allows for registering callbacks to trigger
+      when certain wallet callbacks trigger such as accountsChanged
+    */
+    registerCustomCallback( name, callback   ){
+
+      if(!isArray(this.customCallbacks[name])){
+        this.customCallbacks[name] = [] 
+      }
+
+      this.customCallbacks[name].push( callback )
+
+      console.log('registered callback ', name )
 
     }
 
