@@ -69,19 +69,18 @@ function HeaderSidebar({slot,headerStore })   {
             {FrontendConfig.navbar.items.map((item, index) => (
               <div className='p-1 my-1'>
 
-                  <span 
-                   className='p-2 cursor-pointer text-xl text-gray-100 hover:bg-gray-800'
-                   key={index} 
-
-                     onClick={()=>{ 
-                      headerStore.setMobileNavOpen(false)
-                      navigate(item.to)
-                    }}
-                  
-                  > 
-                  {item.label}
-                  </span>
-            
+            <Link 
+             key={index} 
+            to={item.to ? item.to : item.href }  
+            onClick={()=>{ 
+              headerStore.setMobileNavOpen(false)
+             
+            }}
+            className='p-2 cursor-pointer text-xl text-gray-100 hover:bg-gray-800' key={index} >
+            {item.label} 
+            </Link>
+          
+                
           
               </div>
             ))}

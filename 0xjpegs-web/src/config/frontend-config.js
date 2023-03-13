@@ -21,6 +21,7 @@ const config = {
          
           { to:'/', label:'Home' },
           { to:'/blog', label:'Blog' },
+          { href:'https://opensea.io/collection/0xb87dfb31f2029f361f851784898f7f772841c5d0', label:'Collection' },
     
           
         ],
@@ -85,7 +86,11 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/0xbitcoin',
               },
-
+              { 
+                label:'Collection' ,
+                href:'https://opensea.io/collection/0xb87dfb31f2029f361f851784898f7f772841c5d0'
+             },
+    
              
             ],
           },

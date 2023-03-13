@@ -59,8 +59,10 @@ function Header( {sidebarStore, web3Store, sessionStore, headerStore} ) {
 
             <div className="hidden xl:block">
             {FrontendConfig.navbar.items.map((item, index) => (
-              <Link to={item.to} className='p-4 text-lg' key={index} > {item.label} </Link>
-            ))}
+
+              <Link to={item.to ? item.to : item.href }   className='p-4 text-lg' key={index} > {item.label} </Link>
+          
+          ))}
             </div>
 
 
