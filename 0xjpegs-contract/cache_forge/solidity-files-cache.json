@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/MemesAuction.sol": {
-      "lastModificationDate": 1678727243138,
-      "contentHash": "5f4155b2806a865953d3d9a096435ae4",
+      "lastModificationDate": 1678846222658,
+      "contentHash": "b61801561dea3d75b9dc593d57f0b51a",
       "sourceName": "contracts/MemesAuction.sol",
       "solcConfig": {
         "settings": {
@@ -626,8 +626,8 @@
       }
     },
     "test/MemesAuction.t.sol": {
-      "lastModificationDate": 1678500970814,
-      "contentHash": "229a294c7719e83eb0a74ca5a429a564",
+      "lastModificationDate": 1678846577943,
+      "contentHash": "a8ad606f3d2a83da591da18d1a3cea1f",
       "sourceName": "test/MemesAuction.t.sol",
       "solcConfig": {
         "settings": {
@@ -680,6 +680,9 @@
         },
         "MockJpegsNft": {
           "0.8.17+commit.8df45f5f.Linux.gcc": "MemesAuction.t.sol/MockJpegsNft.json"
+        },
+        "MockUser": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "MemesAuction.t.sol/MockUser.json"
         }
       }
     }
