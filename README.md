@@ -2,7 +2,7 @@
 
 ### 0xJPEGs
 
-   A dutch auction for the highest quality of 0xbitcoin meme NFTs.   
+   An auction for the highest quality of 0xbitcoin meme NFTs.   
    
    
 https://0xjpegs.com
