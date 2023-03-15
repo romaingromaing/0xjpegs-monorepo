@@ -299,6 +299,26 @@ const setPage = async (newPageNumber) => {
                         }
 
 
+                        <div className="my-16 box p-4">
+
+                          <div className="text-xl font-bold"> Fund Allocation </div> 
+
+                        <div className="flex flex-col">
+                          <div> 
+                            
+                          🔥 50% of buyout is burned 
+                            
+                          </div> 
+
+                          <div> 
+                            
+                          ⛏️ 50% of buyout is sent to '<a href="https://guild.0xbtc.io" className="text-blue-400">0xBTC Guild</a>' 
+                            
+                          </div> 
+
+                        </div>
+                        </div>
+
                       </div>
                 </div>
                 

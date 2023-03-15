@@ -19,6 +19,12 @@ import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
     A reverse dutch auction that burns 0xbtc in order to mint NFTs.
 
+    ---------------------------------------------------------------
+
+    0xBitcoin (0xbtc) is the decentralized mineable ERC20 token for Ethereum Mainnet. 
+
+    Contract by @ethereumdegen
+
 */
 
 contract MemesAuction is Ownable {
@@ -105,10 +111,10 @@ contract MemesAuction is Ownable {
         _transferFundsOut( mintPrice );
 
         
-        //mint the nft 
+ 
         uint256 tokenId = IMintableNFT(mintableNFT).mint(recipient);
 
-          //emit event 
+ 
         emit Buyout(recipient, tokenId, mintPrice);
 
 
@@ -166,7 +172,7 @@ contract MemesAuction is Ownable {
     
 
        
-    function receiveApproval(address from, uint256 amount, address token, bytes memory data) public returns (bool success) {
+    function receiveApproval(address from, uint256 amount, address token, bytes memory) public returns (bool success) {
 
         require( msg.sender == currencyToken , "Invalid receiveApproval origin");
         require( token == currencyToken , "Invalid token type received");
