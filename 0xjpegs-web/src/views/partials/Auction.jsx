@@ -242,6 +242,9 @@ const setPage = async (newPageNumber) => {
                       <div className="flex flex-col">
                       <div className="text-2xl font-bold"> {tokenManifest.name}  </div>
                       <div className="text-lg font-bold"> Token #{tokenManifest.attributes[0].value}  </div>
+                      <a className="text-sm " href={tokenUri} > 
+                       [view metadata]
+                       </a>
                       
                       </div>
                       }
