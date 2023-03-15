@@ -260,7 +260,7 @@ const setPage = async (newPageNumber) => {
                       <div className="flex flex-col">
                       <div className="text-2xl font-bold"> {tokenManifest.name}  </div>
                       <div className="text-lg font-bold"> Token #{tokenManifest.attributes[0].value}  </div>
-                      <a className="text-sm " href={tokenUri} > 
+                      <a className="text-xs text-orange-400" href={tokenUri} > 
                        [view metadata]
                        </a>
                       
@@ -282,7 +282,7 @@ const setPage = async (newPageNumber) => {
                        <div className="my-8 flex flex-col">
                             <div className="underline"> Auction Price (0xbtc)</div>
                             <div className="flex flex-row"> 
-                               <div className="px-1 text-lg font-bold"> { ethers.utils.formatUnits(mintPrice, 8)  } </div>
+                               <div className="px-1 text-lg font-bold"> {  (parseFloat(ethers.utils.formatUnits(mintPrice, 8)) ).toFixed(2) } </div>
                                <div className="px-1" > 
                                 <img src={logo0xbtc} width="24" height="24" />
                                 </div>
