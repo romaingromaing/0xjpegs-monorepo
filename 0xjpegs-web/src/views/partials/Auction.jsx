@@ -14,10 +14,11 @@ import AuctionWallet from '@/views/components/auction-wallet/Main.jsx'
 import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react';
 
 import Axios from 'axios'
+import { getAuctionStarted } from '../../lib/auction-lib';
 
 function Auction( {web3Store}  ) {
 
-  let networkName = 'goerli'
+  let networkName = 'mainnet'
   let provider = new JsonRpcProvider( providerConfig[networkName] )
 
 
@@ -31,11 +32,11 @@ function Auction( {web3Store}  ) {
   const [imageUri, imageUriSet] = useState(null) 
  
   const [mintPrice, mintPriceSet] = useState(null) 
-
+  const [auctionStarted, auctionStartedSet] = useState(null) 
 
   const [pageNumber, pageNumberSet] = useState(null) 
 
-  let MAX_PAGE_NUMBER = 59 ; 
+  let MAX_PAGE_NUMBER = 500 ; 
 
 
   let hasInitializedPage = false
@@ -53,8 +54,7 @@ function Auction( {web3Store}  ) {
        
       let imageUri = manifest.data.image
       imageUriSet(imageUri)
-
-      //console.log('meep', ext.length == 0, pageNumber)
+ 
     
       return ext 
     }catch(e){
@@ -64,12 +64,9 @@ function Auction( {web3Store}  ) {
 
   }
 
-  const fetchOwnerOf = async(tokenId) => { 
+  const fetchOwnerOf = async(tokenId) => {  
 
-
-    tokenOwnerSet(undefined) 
-      
-
+    tokenOwnerSet(undefined)  
 
     try{ 
       const owner = await getOwnerOf(tokenId, networkName, provider)
@@ -105,6 +102,17 @@ function Auction( {web3Store}  ) {
    }
   
 
+   const fetchAuctionStarted = async ( ) => {
+ 
+    try{ 
+ 
+      const auctionStarted = await getAuctionStarted(networkName, provider)
+          
+      auctionStartedSet(auctionStarted)
+    }catch(e){
+      console.error(e)
+    }
+  } 
 
   const fetchMintPrice = async ( ) => {
  
@@ -123,6 +131,7 @@ function Auction( {web3Store}  ) {
   const setup = async () => {
     await fetchMintedCount()
     await fetchMintPrice()
+    await fetchAuctionStarted() 
    
   }
 
@@ -139,6 +148,8 @@ function Auction( {web3Store}  ) {
 
     let priceInterval = setInterval( fetchMintPrice, 10*1000  )
     let mintCountInterval = setInterval( fetchMintedCount, 20*1000  )
+
+    let pausedCheckInterval = setInterval( fetchAuctionStarted, 20*1000  )
   }, []) // <-- empty dependency array
 
 
@@ -186,6 +197,13 @@ const setPage = async (newPageNumber) => {
         <div className="bg-gray-300 text-black text-center p-2   font-bold ">
             <p> Please switch network to Goerli Testnet </p>  
     
+        </div>
+       }  
+
+
+    {networkName == 'mainnet' && web3Store.active && web3Store.chainId != '1' &&
+        <div className="bg-gray-300 text-black text-center p-2 font-bold ">
+            <p> Please switch network to Ethereum Mainnet </p>   
         </div>
        }  
      
@@ -249,9 +267,16 @@ const setPage = async (newPageNumber) => {
                       </div>
                       }
 
-                     
+                      {!auctionStarted &&
+                        <div className="my-8 box p-4 ">
 
-                      { tokenManifest && tokenManifest.attributes &&  isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
+                          The auction is paused.
+
+                        </div>
+                      
+                      }
+
+                      { auctionStarted &&  tokenManifest && tokenManifest.attributes &&  isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
                        
                       <div>
                        <div className="my-8 flex flex-col">
@@ -301,6 +326,26 @@ const setPage = async (newPageNumber) => {
 
                         }
 
+
+                        <div className="my-16 box p-4">
+
+                          <div className="text-xl font-bold"> Fund Allocation </div> 
+
+                        <div className="flex flex-col">
+                          <div> 
+                            
+                          🔥 50% of buyout is burned 
+                            
+                          </div> 
+
+                          <div> 
+                            
+                          ⛏️ 50% of buyout is sent to '<a href="https://guild.0xbtc.io" className="text-blue-400">0xBTC Guild</a>' 
+                            
+                          </div> 
+
+                        </div>
+                        </div>
 
                       </div>
                 </div>

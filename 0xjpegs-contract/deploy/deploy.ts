@@ -21,13 +21,13 @@ const deployFn: DeployFunction = async (hre:any) => {
   } )
 
 
-  const tokenAddress = "0xab89a7742cb10e7bce98540fd05c7d731839cf9f";
-  const nftAddress = "0xB87DFb31f2029F361f851784898f7F772841C5D0"
+  const tokenAddress = "0xb6ed7644c69416d67b522e20bc294a9a9b405b31";
+  const nftAddress = jpegsNft.address  
 
   const auction = await deploy<any>({
     from:deployer_key,
     contract: 'MemesAuction',
-    args: [ nftAddress ? nftAddress : jpegsNft.address, tokenAddress ],
+    args: [ nftAddress, tokenAddress ],
     
     skipIfAlreadyDeployed: false,
     hre, 

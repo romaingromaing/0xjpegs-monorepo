@@ -14,7 +14,7 @@ import  contractsConfig from '@/config/contracts-config.json'
 import LoadingIcon from '@/views/components/loading-icon/Main.jsx'
 
 
-function Main({ web3Store, mintPrice }) {
+function Main({ web3Store, mintPrice, networkName }) {
 
   let navigate = useNavigate();
 
@@ -25,8 +25,7 @@ function Main({ web3Store, mintPrice }) {
   const [tokenBalance, tokenBalanceSet] = useState(null) 
 
  
-
-let networkName = 'goerli'
+ 
 let auctionContract = contractsConfig[networkName]['auction']
 
  
@@ -74,6 +73,8 @@ const fetchBalance = async ( ) => {
     fetchBalance() 
     //fetchApprovalAmount() 
 
+    web3Store.registerCustomCallback('accountsChanged', fetchBalance)
+
     let balanceInterval = setInterval( fetchBalance, 5*1000  )
    // let approvedInterval = setInterval( fetchApprovalAmount, 4*1000  )
   }, []) // <-- empty dependency array
@@ -81,10 +82,10 @@ const fetchBalance = async ( ) => {
 
 
  
- const sufficientApproval = (approved,mintPrice) => {
+ const sufficientBalance = (balance,mintPrice) => {
   
-    return  true //parseInt(approved) >= parseInt(mintPrice)
-   }  
+    return  parseInt(balance) >= parseInt(mintPrice)
+  }  
 
    
 
@@ -106,7 +107,7 @@ const fetchBalance = async ( ) => {
                     <LoadingIcon />
             }
 
-            { web3Store.active && !isNaN(parseInt(tokenBalance)) && 
+            { web3Store.active && !isNaN(parseInt(tokenBalance)) &&  sufficientBalance(tokenBalance, mintPrice) &&
                
                  <div>
                    
@@ -117,21 +118,11 @@ const fetchBalance = async ( ) => {
                         </div> 
 
 
-                    <div>
-                    { /*
-                    <SimpleButton
-                    customClass="hover:bg-blue-400 hover:text-white hover:font-bold"
+                    <div>  
 
-                    clicked={async ()=>{  await approve( 
-                        auctionContract.address, 
-                        mintPrice, 
-                        networkName, 
-                        web3Store.signer )  }}
-                    > Approve 0xBTC
-                    </SimpleButton>
-                    */}
 
-                   
+           
+
                     <SimpleButton
                     customClass="hover:bg-gray-700 hover:text-white hover:font-bold"
                     clicked={async ()=>{  await approveAndCall(
@@ -143,10 +134,24 @@ const fetchBalance = async ( ) => {
                    
                    > Buyout
                     </SimpleButton>
+                
                     
                     </div>
             </div>
            }
+
+
+        { web3Store.active && !isNaN(parseInt(tokenBalance)) &&  !sufficientBalance(tokenBalance, mintPrice) &&
+        <div>
+                  <SimpleButton
+                    customClass="hover:bg-gray-700 hover:text-white hover:font-bold" 
+                   
+                   >  Insufficient Balance  
+                    </SimpleButton>
+
+         
+        </div>
+        }
        
 
        

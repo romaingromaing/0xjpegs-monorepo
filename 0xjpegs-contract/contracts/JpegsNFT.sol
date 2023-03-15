@@ -13,7 +13,11 @@ import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
  
 
 /*
+
     0xJPEGs are a celebration of decentralized and credibly-neutral assets on Ethereum Mainnet.
+
+    Contract by @ethereumdegen
+
 */
 
 
@@ -32,7 +36,7 @@ contract JpegsNFT is ERC721,Ownable,IMintableNFT {
     event SetMinter(address minter);
  
     modifier onlyMinter() {
-        require(msg.sender == minter, "caller is not the minter.");
+        require(msg.sender == minter, "Caller is not the minter.");
         _;
     }
 

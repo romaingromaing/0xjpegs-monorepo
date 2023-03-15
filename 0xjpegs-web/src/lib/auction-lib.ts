@@ -19,6 +19,17 @@ export async function getMintPrice(blockNumber:string, networkName:string, provi
     return price.toString()
 }
 
+export async function getAuctionStarted( networkName:string, provider: Provider){
+
+    let localConfig:any = contractsConfig[networkName]
+    
+    let auctionContract = new ethers.Contract(localConfig['auction'].address, MemesAuctionAbi, provider)
+
+    let started =  await auctionContract.auctionStarted()
+
+    return started
+}
+
  
 export async function buyout(price:string, recipient:string, networkName:string, provider: Provider){
 

@@ -17,13 +17,15 @@ contract MemesAuctionTest is Test {
     MemesAuction mAuction;
     _0xMockToken xToken;
 
+    MockUser fRecipient;
+
     uint256 startBlockNumber = 1000;
 
     function setUp() public {
 
         vm.roll(startBlockNumber);
 
-
+        fRecipient = new MockUser();
         xToken = new _0xMockToken();
 
         mAuction = new MemesAuction(address(new MockJpegsNft()),address(xToken));
@@ -83,7 +85,7 @@ contract MemesAuctionTest is Test {
              "unexpected mint price after three days"
         );
 
-         assertEq(
+        assertEq(
              mAuction.getMintPrice(startBlockNumber + 28000),
              5_35714150,
              "unexpected mint price after four days"
@@ -97,6 +99,8 @@ contract MemesAuctionTest is Test {
           xToken.mint(0,0x0);
           mAuction.startAuction(); 
 
+          mAuction.setFundsRecipient(address(fRecipient));
+
           vm.roll(startBlockNumber + 500000);
 
           bytes memory data;
@@ -109,6 +113,18 @@ contract MemesAuctionTest is Test {
 
           mAuction.buyout( 5000000, address(this)  );
 
+
+           assertEq(
+             xToken.balanceOf(address(fRecipient)),
+             amount/2,
+             "unexpected balance"
+          );
+
+           assertEq(
+             xToken.balanceOf(address(0)),
+             amount/2,
+             "unexpected balance"
+          );
     }
 
      function test_buyout_2() public { 
@@ -145,3 +161,5 @@ contract MockJpegsNft is IMintableNFT {
 
 
 }
+
+contract MockUser {}
