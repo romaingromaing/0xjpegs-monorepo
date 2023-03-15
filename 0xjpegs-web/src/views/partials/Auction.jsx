@@ -148,6 +148,8 @@ function Auction( {web3Store}  ) {
 
     let priceInterval = setInterval( fetchMintPrice, 10*1000  )
     let mintCountInterval = setInterval( fetchMintedCount, 20*1000  )
+
+    let pausedCheckInterval = setInterval( fetchAuctionStarted, 20*1000  )
   }, []) // <-- empty dependency array
 
 
