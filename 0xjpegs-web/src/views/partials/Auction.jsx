@@ -14,6 +14,7 @@ import AuctionWallet from '@/views/components/auction-wallet/Main.jsx'
 import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react';
 
 import Axios from 'axios'
+import { getAuctionStarted } from '../../lib/auction-lib';
 
 function Auction( {web3Store}  ) {
 
@@ -31,7 +32,7 @@ function Auction( {web3Store}  ) {
   const [imageUri, imageUriSet] = useState(null) 
  
   const [mintPrice, mintPriceSet] = useState(null) 
-
+  const [auctionStarted, auctionStartedSet] = useState(null) 
 
   const [pageNumber, pageNumberSet] = useState(null) 
 
@@ -63,12 +64,9 @@ function Auction( {web3Store}  ) {
 
   }
 
-  const fetchOwnerOf = async(tokenId) => { 
+  const fetchOwnerOf = async(tokenId) => {  
 
-
-    tokenOwnerSet(undefined) 
-      
-
+    tokenOwnerSet(undefined)  
 
     try{ 
       const owner = await getOwnerOf(tokenId, networkName, provider)
@@ -104,6 +102,17 @@ function Auction( {web3Store}  ) {
    }
   
 
+   const fetchAuctionStarted = async ( ) => {
+ 
+    try{ 
+ 
+      const auctionStarted = await getAuctionStarted(networkName, provider)
+          
+      auctionStartedSet(auctionStarted)
+    }catch(e){
+      console.error(e)
+    }
+  } 
 
   const fetchMintPrice = async ( ) => {
  
@@ -122,6 +131,7 @@ function Auction( {web3Store}  ) {
   const setup = async () => {
     await fetchMintedCount()
     await fetchMintPrice()
+    await fetchAuctionStarted() 
    
   }
 
@@ -252,9 +262,16 @@ const setPage = async (newPageNumber) => {
                       </div>
                       }
 
-                     
+                      {!auctionStarted &&
+                        <div className="my-8 box p-4 ">
 
-                      { tokenManifest && tokenManifest.attributes &&  isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
+                          The auction is paused.
+
+                        </div>
+                      
+                      }
+
+                      { auctionStarted &&  tokenManifest && tokenManifest.attributes &&  isAvailableToMint( mintedCount, tokenManifest.attributes[0].value ) &&  mintPrice &&
                        
                       <div>
                        <div className="my-8 flex flex-col">
