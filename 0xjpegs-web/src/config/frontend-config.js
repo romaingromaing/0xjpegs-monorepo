@@ -21,7 +21,7 @@ const config = {
          
           { to:'/', label:'Home' },
           { to:'/blog', label:'Blog' },
-          { href:'https://opensea.io/collection/0xb87dfb31f2029f361f851784898f7f772841c5d0', label:'Collection' },
+          { href:'https://opensea.io/collection/0xabdFb5eb2ac4d43dC18d8253494A6002A363effd', label:'Collection' },
     
           
         ],
@@ -54,7 +54,7 @@ const config = {
 
               {
                 label: 'Contract',
-                href:"https://goerli.etherscan.io/address/0x8fce14A1891Df9D840F283bafB97BFf2c7Ceba07"
+                href:"https://etherscan.io/address/0x33941C7514bCC3f4dBa2305d55B4359efA915514"
 
               },
 
@@ -88,7 +88,7 @@ const config = {
               },
               { 
                 label:'Collection' ,
-                href:'https://opensea.io/collection/0xb87dfb31f2029f361f851784898f7f772841c5d0'
+                href:'https://opensea.io/collection/0xabdFb5eb2ac4d43dC18d8253494A6002A363effd'
              },
     
              
