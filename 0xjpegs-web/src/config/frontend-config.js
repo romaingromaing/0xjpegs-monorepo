@@ -21,7 +21,7 @@ const config = {
          
           { to:'/', label:'Home' },
           { to:'/blog', label:'Blog' },
-          { href:'https://opensea.io/collection/0xabdFb5eb2ac4d43dC18d8253494A6002A363effd', label:'Collection' },
+          { href:'https://opensea.io/collection/0xjpegs', label:'Collection' },
     
           
         ],
@@ -88,7 +88,7 @@ const config = {
               },
               { 
                 label:'Collection' ,
-                href:'https://opensea.io/collection/0xabdFb5eb2ac4d43dC18d8253494A6002A363effd'
+                href:'https://opensea.io/collection/0xjpegs'
              },
     
              
