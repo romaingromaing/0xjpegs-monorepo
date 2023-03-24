@@ -1,17 +1,17 @@
 {
   "abi": [],
   "bytecode": {
-    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122062e4e78fc04431b2c47839a953dc7caca337a363df33a5953402acfa620307be64736f6c63430008110033",
+    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220e6d353a3499b1dff346af6f8184a65aaa8fa07d7d7154b3b489efff45373975c64736f6c63430008110033",
     "sourceMap": "3618:20:14:-:0;;;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x6080604052600080fdfea264697066735822122062e4e78fc04431b2c47839a953dc7caca337a363df33a5953402acfa620307be64736f6c63430008110033",
+    "object": "0x6080604052600080fdfea2646970667358221220e6d353a3499b1dff346af6f8184a65aaa8fa07d7d7154b3b489efff45373975c64736f6c63430008110033",
     "sourceMap": "3618:20:14:-:0;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"test/MemesAuction.t.sol\":\"MockUser\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@mangrovedao/=node_modules/@mangrovedao/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":ds-test/=lib/solmate/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat/=node_modules/hardhat/\",\":solmate/=lib/solmate/src/\"]},\"sources\":{\"contracts/MemesAuction.sol\":{\"keccak256\":\"0xc8ee1aa5dc030b1a390930515ddfae4bb6912fda9c4d3b5c7dd53ff0638b3241\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7b13622c92acff4c527591780a0a1f40f17f5e25ee84b110db7e78eaceb27d25\",\"dweb:/ipfs/QmPCw79pMREgV4KcqwE1gwhqyM7a1n2MEmMvs23SDsuvCA\"]},\"contracts/interfaces/IMintableNFT.sol\":{\"keccak256\":\"0x9304fdc06a11fe3b2b2cc6c580e4e81399882ef045b71ed558efb3671696eef8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://421a40c9cad1bc0d1cf4a193bf2ee04d99e122d1d941e78e7ff9004080968719\",\"dweb:/ipfs/QmcAnJPgrewngzJ6n9ZtAqpTAtywYpbU3MJV8uyfdUyQXA\"]},\"contracts/mock/_0xMockToken.sol\":{\"keccak256\":\"0x4c7ab94cd9b16198be6856dc20260dd97baed90f841fa37ab7e74dcd68910fb9\",\"urls\":[\"bzz-raw://a904c312343148284ed90d56c36728447df573fcf04e1d8f8ae5616c6b61841e\",\"dweb:/ipfs/QmXm2vVptDAWmXJRA5ABtoVPyaQRtRSSzpYUo6LxZBZZ8a\"]},\"lib/forge-std/src/Test.sol\":{\"keccak256\":\"0x6087b46f61eb42b49d4f77a3bd990f205cf16203678c1f4c556747d62932c195\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://0c9e84b3dfa2d15afbf16a1139e6d866454b31e58f11bce8a516367276786948\",\"dweb:/ipfs/QmPBq7ea3Uz7ieWtjNm1jWeXnwaPaLTdqeBEBAPJhENehj\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xfed975a9e78dae9bdb3bb1347765c1d405c0f0066d2f5861f5d79b8c693700e4\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://b1b2e4f300932b4828c08430ce5bda1aefba94d5f31b2f54f66adae6590b9bbb\",\"dweb:/ipfs/QmQD9LJHboHdWx9xrkpESQRiUvHibEw1oggPYtSzh44KGQ\"]},\"lib/forge-std/src/console.sol\":{\"keccak256\":\"0x91d5413c2434ca58fd278b6e1e79fd98d10c83931cc2596a6038eee4daeb34ba\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ccea707361e48b9b7a161fe81f496b9932bc471e9c4e4e1e9c283f2453cc70\",\"dweb:/ipfs/QmcB66sZhQ6Kz7MUHcLE78YXRUZxoZnnxZjN6yATsbB2ec\"]},\"lib/forge-std/src/console2.sol\":{\"keccak256\":\"0xbeb823fcdb356244a83aaccdf828ad019ecc1ffaa3dff18e624fc6d5714ea671\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4cbe9400340e5f9ec55e2aff3bad1c15fa3afbbe37e80800e6f3fed2ad26854f\",\"dweb:/ipfs/QmdJBABsuXkvWxVzEyGXsTE3vyfBPXDdw5xvvtUz3JeoYW\"]},\"lib/solmate/lib/ds-test/src/test.sol\":{\"keccak256\":\"0xb39cd1d5220cb474947b131e15a4538334b7e886af244b440ae5c9c6bba96a54\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://3101520221449ac0070bda3881311a71d9aa87e5210765e875246922cb5cb5f5\",\"dweb:/ipfs/Qmbg6kAHNoG7ox9N9Xqd9Ere2H2XixMFWFqvyPwFCzB3Gr\"]},\"node_modules/@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34\",\"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56\",\"dweb:/ipfs/QmR3zpd7wNw3rcUdekwiv6FYHJqksuTCXLVioTxu6Fbxk3\"]},\"node_modules/@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"node_modules/@openzeppelin/contracts/utils/math/Math.sol\":{\"keccak256\":\"0xa1e8e83cd0087785df04ac79fb395d9f3684caeaf973d9e2c71caef723a3a5d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://33bbf48cc069be677705037ba7520c22b1b622c23b33e1a71495f2d36549d40b\",\"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz\"]},\"test/MemesAuction.t.sol\":{\"keccak256\":\"0x18bbb624947354fcddbed490bbca563d19e10e1fcea51e66254ac764af4a87e0\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://442081966b0e12c252b2839f16698954639414614281054fcb8f671dcf210d44\",\"dweb:/ipfs/QmS75zJpDC8oiKKCEiedVxdeza4rrTrHGQ2nsNDXsXBaBZ\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"test/MemesAuction.t.sol\":\"MockUser\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/solmate/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":solmate/=lib/solmate/src/\"]},\"sources\":{\"contracts/MemesAuction.sol\":{\"keccak256\":\"0x232d6b5529af04ea67119bce1e9ae717c117decb9013f310187722183c9b7e5c\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://a308ad5cf218ec19c02445c697378a6e1d971ae24bc813100ac847be9ec29894\",\"dweb:/ipfs/QmU8mmaQwDXVmW1Jmmbau8ibbds2EytxSY1DbTZtXVxByo\"]},\"contracts/interfaces/IMintableNFT.sol\":{\"keccak256\":\"0x9304fdc06a11fe3b2b2cc6c580e4e81399882ef045b71ed558efb3671696eef8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://421a40c9cad1bc0d1cf4a193bf2ee04d99e122d1d941e78e7ff9004080968719\",\"dweb:/ipfs/QmcAnJPgrewngzJ6n9ZtAqpTAtywYpbU3MJV8uyfdUyQXA\"]},\"contracts/mock/_0xMockToken.sol\":{\"keccak256\":\"0x4c7ab94cd9b16198be6856dc20260dd97baed90f841fa37ab7e74dcd68910fb9\",\"urls\":[\"bzz-raw://a904c312343148284ed90d56c36728447df573fcf04e1d8f8ae5616c6b61841e\",\"dweb:/ipfs/QmXm2vVptDAWmXJRA5ABtoVPyaQRtRSSzpYUo6LxZBZZ8a\"]},\"lib/forge-std/src/Test.sol\":{\"keccak256\":\"0x6087b46f61eb42b49d4f77a3bd990f205cf16203678c1f4c556747d62932c195\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://0c9e84b3dfa2d15afbf16a1139e6d866454b31e58f11bce8a516367276786948\",\"dweb:/ipfs/QmPBq7ea3Uz7ieWtjNm1jWeXnwaPaLTdqeBEBAPJhENehj\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xfed975a9e78dae9bdb3bb1347765c1d405c0f0066d2f5861f5d79b8c693700e4\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://b1b2e4f300932b4828c08430ce5bda1aefba94d5f31b2f54f66adae6590b9bbb\",\"dweb:/ipfs/QmQD9LJHboHdWx9xrkpESQRiUvHibEw1oggPYtSzh44KGQ\"]},\"lib/forge-std/src/console.sol\":{\"keccak256\":\"0x91d5413c2434ca58fd278b6e1e79fd98d10c83931cc2596a6038eee4daeb34ba\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ccea707361e48b9b7a161fe81f496b9932bc471e9c4e4e1e9c283f2453cc70\",\"dweb:/ipfs/QmcB66sZhQ6Kz7MUHcLE78YXRUZxoZnnxZjN6yATsbB2ec\"]},\"lib/forge-std/src/console2.sol\":{\"keccak256\":\"0xbeb823fcdb356244a83aaccdf828ad019ecc1ffaa3dff18e624fc6d5714ea671\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4cbe9400340e5f9ec55e2aff3bad1c15fa3afbbe37e80800e6f3fed2ad26854f\",\"dweb:/ipfs/QmdJBABsuXkvWxVzEyGXsTE3vyfBPXDdw5xvvtUz3JeoYW\"]},\"lib/openzeppelin-contracts/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34\",\"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56\",\"dweb:/ipfs/QmR3zpd7wNw3rcUdekwiv6FYHJqksuTCXLVioTxu6Fbxk3\"]},\"lib/openzeppelin-contracts/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/openzeppelin-contracts/contracts/utils/math/Math.sol\":{\"keccak256\":\"0xa1e8e83cd0087785df04ac79fb395d9f3684caeaf973d9e2c71caef723a3a5d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://33bbf48cc069be677705037ba7520c22b1b622c23b33e1a71495f2d36549d40b\",\"dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz\"]},\"lib/solmate/lib/ds-test/src/test.sol\":{\"keccak256\":\"0xb39cd1d5220cb474947b131e15a4538334b7e886af244b440ae5c9c6bba96a54\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://3101520221449ac0070bda3881311a71d9aa87e5210765e875246922cb5cb5f5\",\"dweb:/ipfs/Qmbg6kAHNoG7ox9N9Xqd9Ere2H2XixMFWFqvyPwFCzB3Gr\"]},\"test/MemesAuction.t.sol\":{\"keccak256\":\"0x18bbb624947354fcddbed490bbca563d19e10e1fcea51e66254ac764af4a87e0\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://442081966b0e12c252b2839f16698954639414614281054fcb8f671dcf210d44\",\"dweb:/ipfs/QmS75zJpDC8oiKKCEiedVxdeza4rrTrHGQ2nsNDXsXBaBZ\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.17+commit.8df45f5f"
@@ -32,14 +32,8 @@
     },
     "settings": {
       "remappings": [
-        ":@ensdomains/=node_modules/@ensdomains/",
-        ":@mangrovedao/=node_modules/@mangrovedao/",
-        ":@openzeppelin/=node_modules/@openzeppelin/",
         ":ds-test/=lib/solmate/lib/ds-test/src/",
-        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
         ":forge-std/=lib/forge-std/src/",
-        ":hardhat-deploy/=node_modules/hardhat-deploy/",
-        ":hardhat/=node_modules/hardhat/",
         ":solmate/=lib/solmate/src/"
       ],
       "optimizer": {
@@ -56,10 +50,10 @@
     },
     "sources": {
       "contracts/MemesAuction.sol": {
-        "keccak256": "0xc8ee1aa5dc030b1a390930515ddfae4bb6912fda9c4d3b5c7dd53ff0638b3241",
+        "keccak256": "0x232d6b5529af04ea67119bce1e9ae717c117decb9013f310187722183c9b7e5c",
         "urls": [
-          "bzz-raw://7b13622c92acff4c527591780a0a1f40f17f5e25ee84b110db7e78eaceb27d25",
-          "dweb:/ipfs/QmPCw79pMREgV4KcqwE1gwhqyM7a1n2MEmMvs23SDsuvCA"
+          "bzz-raw://a308ad5cf218ec19c02445c697378a6e1d971ae24bc813100ac847be9ec29894",
+          "dweb:/ipfs/QmU8mmaQwDXVmW1Jmmbau8ibbds2EytxSY1DbTZtXVxByo"
         ],
         "license": "UNLICENSED"
       },
@@ -111,15 +105,7 @@
         ],
         "license": "MIT"
       },
-      "lib/solmate/lib/ds-test/src/test.sol": {
-        "keccak256": "0xb39cd1d5220cb474947b131e15a4538334b7e886af244b440ae5c9c6bba96a54",
-        "urls": [
-          "bzz-raw://3101520221449ac0070bda3881311a71d9aa87e5210765e875246922cb5cb5f5",
-          "dweb:/ipfs/Qmbg6kAHNoG7ox9N9Xqd9Ere2H2XixMFWFqvyPwFCzB3Gr"
-        ],
-        "license": "GPL-3.0-or-later"
-      },
-      "node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
         "keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
         "urls": [
           "bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
@@ -127,7 +113,7 @@
         ],
         "license": "MIT"
       },
-      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
         "keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
         "urls": [
           "bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
@@ -135,7 +121,7 @@
         ],
         "license": "MIT"
       },
-      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol": {
         "keccak256": "0xab28a56179c1db258c9bf5235b382698cb650debecb51b23d12be9e241374b68",
         "urls": [
           "bzz-raw://daae589a9d6fa7e55f99f86c0a16796ca490f243fb3693632c3711c0646c1d56",
@@ -143,7 +129,7 @@
         ],
         "license": "MIT"
       },
-      "node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
         "keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
         "urls": [
           "bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
@@ -151,7 +137,7 @@
         ],
         "license": "MIT"
       },
-      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
         "keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
         "urls": [
           "bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
@@ -159,13 +145,21 @@
         ],
         "license": "MIT"
       },
-      "node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
+      "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
         "keccak256": "0xa1e8e83cd0087785df04ac79fb395d9f3684caeaf973d9e2c71caef723a3a5d6",
         "urls": [
           "bzz-raw://33bbf48cc069be677705037ba7520c22b1b622c23b33e1a71495f2d36549d40b",
           "dweb:/ipfs/Qmct36zWXv3j7LZB83uwbg7TXwnZSN1fqHNDZ93GG98bGz"
         ],
         "license": "MIT"
+      },
+      "lib/solmate/lib/ds-test/src/test.sol": {
+        "keccak256": "0xb39cd1d5220cb474947b131e15a4538334b7e886af244b440ae5c9c6bba96a54",
+        "urls": [
+          "bzz-raw://3101520221449ac0070bda3881311a71d9aa87e5210765e875246922cb5cb5f5",
+          "dweb:/ipfs/Qmbg6kAHNoG7ox9N9Xqd9Ere2H2XixMFWFqvyPwFCzB3Gr"
+        ],
+        "license": "GPL-3.0-or-later"
       },
       "test/MemesAuction.t.sol": {
         "keccak256": "0x18bbb624947354fcddbed490bbca563d19e10e1fcea51e66254ac764af4a87e0",
@@ -183,19 +177,19 @@
     "id": 23754,
     "exportedSymbols": {
       "DSTest": [
-        22178
+        23384
       ],
       "IERC20": [
-        22369
+        20582
       ],
       "IERC721": [
-        22485
+        20698
       ],
       "IMintableNFT": [
         391
       ],
       "Math": [
-        23384
+        21597
       ],
       "MemesAuction": [
         376
@@ -210,7 +204,7 @@
         23753
       ],
       "Ownable": [
-        22291
+        20504
       ],
       "StdStorage": [
         2787
@@ -1761,18 +1755,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "987:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -1957,18 +1951,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "1158:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -2153,18 +2147,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "1334:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -2349,18 +2343,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "1533:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -2545,18 +2539,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "1701:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -2741,18 +2735,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "1871:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -2937,18 +2931,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "2042:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -4142,18 +4136,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "2718:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -4383,18 +4377,18 @@
                         2241,
                         2275,
                         2304,
-                        20712,
-                        20737,
-                        20767,
-                        20792,
-                        20851,
-                        20876,
-                        20906,
-                        20931,
-                        22031,
-                        22066
+                        21918,
+                        21943,
+                        21973,
+                        21998,
+                        22057,
+                        22082,
+                        22112,
+                        22137,
+                        23237,
+                        23272
                       ],
-                      "referencedDeclaration": 20931,
+                      "referencedDeclaration": 22137,
                       "src": "2862:8:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -5211,7 +5205,7 @@
         "linearizedBaseContracts": [
           23731,
           2689,
-          22178
+          23384
         ],
         "name": "MemesAuctionTest",
         "nameLocation": "326:16:14",
